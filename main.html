@@ -7,32 +7,37 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <title>test</title>
+    <link rel="icon" href="./images/logo.png" type="image/png">
+    <title>Simple Market!</title>
 </head>
 <body>
     <header>
-        <div class="market-name">Simple Market!</div>
+        <div class="market-name" id="main">Simple Market!</div>
         <div class="market-top-bar">
-            <div class="products">Товары</div>
-            <a href="./cart.html">Корзина</a>
+            <div class="market-top-bar-element" id="products">Товары</div>
+            <div class="market-top-bar-element" id="cart">Корзина</div>
             <!-- <div class="cart">Корзина</div> -->
-            <div class="profile">Профиль</div>
-        <div class="auth">Войти</div>
+            <div class="market-top-bar-element" id="profile">Профиль</div>
+        <div class="market-top-bar-element" id="auth">Войти</div>
     </div>
     </header>
     <div class="welcome">
-        <p>Добро пожаловать в наш магазин simple market!</p>
+        <h2><b>Добро пожаловать в наш магазин simple market!</b></h2>
         <p>мы самые бла бла бла...</p>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab perspiciatis reprehenderit iure nihil, molestiae quis quisquam praesentium officiis maxime non, mollitia ipsum pariatur, sequi necessitatibus similique labore eos provident. Sint.
         </p>
+        <div class="icon8">
+        <a target="_blank" href="https://icons8.com/icon/RBFe6zxrXHUS/shopping-cart">Корзина</a> иконка от <a target="_blank" href="https://icons8.com">Icons8</a>
+        </div>
     </div>
     <div class="noveltys">
         <div class="appeal-to-buy">
-            <p>Посмотрите на наши новинки!</p>
+            <h2><b>Посмотрите на наши новинки!</b></h2>
         </div>
-        <div class="product-cards">
-
+        <div class="product-cards" id="product-cards">
         </div>
     </div>
+    <script src="./scripts/header.js"></script>
+    <script src="./scripts/main.js"></script>
 </body>
 </html>
