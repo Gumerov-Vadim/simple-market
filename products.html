@@ -4,21 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Товары</title>
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/products.css">
+    <link rel="stylesheet" href="styles/product_card.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="icon" href="./images/logo.png" type="image/png">
-    <style>
-        .product-cards {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center; /* Центрируем товары */
-            margin-bottom: 20px; /* Отступ снизу для кнопок */
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -33,21 +26,21 @@
 
     <div class="main-content">
     <div class="sidebar">
-        <h3>Категории</h3>
+        <h3 class="category-list-name">Категории</h3>
         <ul id="category-list">
             <!-- Здесь будут загружаться категории -->
         </ul>
     </div>
-        <div id="noveltys" class="product-cards">
-            <h2>Наши товары</h2>
-            <!-- Здесь будут отображаться товары -->
-        </div>
-
+    <div id="noveltys">
+        <h2>Наши товары</h2>
+        <div class="product-cards" id="product-cards"></div>
+        <!-- Здесь будут отображаться товары -->
         <div class="controls">
             <div class="button" id="load-less">Вернуться назад</div>
-            <div class="button" id="load-more">Загрузить еще товары</div>
-            <div class="button" id="clear">Очистить корзину</div></div>
+            <div class="page-number" id="page-number"></div>
+            <div class="button" id="load-more">Больше товаров</div>
         </div>
+    </div>
 
         <script src="./scripts/header.js"></script>
         <script src="./scripts/products.js"></script>

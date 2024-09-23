@@ -1,0 +1,13 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    font-family: 'Montserrat';
+}
+@font-face {
+    font-family: 'Montserrat'; 
+    src: url('fonts/Montserrat-VariableFont_wght.ttf') format('ttf');
+}
+body{
+    background-color: #032221;
+}

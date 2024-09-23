@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Профиль</title>
-    <link rel="stylesheet" href="styles/main.css">
+    <title>Авторизация</title>
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/auth.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/form.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -21,7 +24,16 @@
         <div class="market-top-bar-element" id="auth">Войти</div>
     </div>
     </header>
-    
+    <form autocomplete="on">
+        <label for="userName">Введите ваше имя:</label>
+        <input name="userName" type="text">
+        <label for="userPassword">Введите ваш пароль:</label>
+        <input name="userPassword" type="text">
+    </form>
+    <div class="auth-another">
+        <div class="forget-password"></div>
+        <div class="switch-mode"></div>
+    </div>
     <script src="./scripts/header.js"></script>
 </body>
 </html>

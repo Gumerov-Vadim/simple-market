@@ -1,52 +1,6 @@
-*{
-    padding: 0;
-    margin: 0;
-    border: 0;
-    font-family: 'Montserrat';
-}
 body{
     display: flex;
     flex-direction: column;
-    background-color: #032221;
-    /* color: #E6534B; */
-    color: black;
-    z-index: 0;
-}
-header{
-    background-color: #03624C;
-    display: flex;
-    flex-direction: row;
-    width: 100vw;
-    justify-content: space-between;
-    align-items: flex-end;
-    color: white;
-    height: 50px;
-}
-header div{
-    padding: 5px 20px 5px 20px;
-}
-.market-name{
-    width: 200px;
-    font-size: 24px;
-    cursor: pointer;
-}
-.market-top-bar{
-    display: flex;
-    flex-direction: row;
-    padding: 0 20px;
-    cursor: pointer;
-}
-.market-top-bar div{
-    padding: 0 20px;
-    font-style: italic;
-    height: 100%;
-}
-.market-top-bar div:hover{
-    background-color: #2CC295;
-}
-@font-face {
-    font-family: 'Montserrat'; 
-    src: url('fonts/Montserrat-VariableFont_wght.ttf') format('ttf');
 }
 .welcome{
     display: flex;
@@ -56,75 +10,6 @@ header div{
     padding: 20px;
     color: #F1F7F6;
     background-color: #2CC295;
-}
-.noveltys{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 30px 0 30px 0;
-    z-index: 0;
-    background-color: #032221;
-    color: #F1F7F6;
-}
-.product-cards{
-    margin: 20px 0 0 0;
-    display: flex;
-    flex-wrap: wrap;
-    width: 80vw;
-    padding: 0 10vw;
-    justify-content: space-around;
-}
-.product-card{
-    border: 1px solid white;
-    position: relative;
-    background-color: #FAA4D2;
-    flex-basis: 25%;
-    cursor: pointer;
-    margin: 10px;
-    align-items: center;
-    justify-content:space-between;
-    display: flex;
-    flex-direction: column;
-    z-index: 2;
-    border-radius: 15px ;
-    height: 240px;
-    background-size: cover;
-}
-/* .product-card::before{
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    transform: rotate(45deg);
-    overflow: hidden;
-    z-index:-1;
-} */
-.product-footer{
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 1px 5px 1px 5px;
-    left: 30px;
-    bottom: 15px;
-    background-color: rgba(0,0,0,0.3);
-    color: white;
-    border-radius: 10px;
-    overflow: hidden;
-    max-width: 60%;
-}
-.cart-icon{
-    position: absolute;
-    right: 5px;
-    top: 5px;
-    background-color: rgba(0,0,0,0.3);
-    padding: 5px;
-    border-radius: 15px;
-}
-.cart-icon:hover{
-    transform: scale(1.1);
 }
 img{
     position: relative;

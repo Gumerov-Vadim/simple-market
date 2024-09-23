@@ -1,0 +1,30 @@
+header{
+    background-color: #03624C;
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    justify-content: space-between;
+    align-items: flex-end;
+    color: white;
+    height: 50px;
+}
+.market-name{
+    width: 200px;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0 0 0 10px;
+}
+.market-top-bar{
+    display: flex;
+    flex-direction: row;
+    padding: 0 20px;
+    cursor: pointer;
+}
+.market-top-bar div{
+    padding: 10px 20px 10px 20px;
+    font-style: italic;
+    height: 100%;
+}
+.market-top-bar div:hover{
+    background-color: #2CC295;
+}

@@ -1,0 +1,19 @@
+form{
+    width: min-content;
+    border-radius: 50px;
+    box-shadow: 0px 0px 5px 5px #03624C;
+    color: #F1F7F6;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+}

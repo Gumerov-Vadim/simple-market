@@ -1,30 +1,30 @@
 document.addEventListener('DOMContentLoaded', () => {
     const categoryList = document.getElementById('category-list');
 
-    // Загружаем категории из API
     fetch('https://fakestoreapi.com/products/categories')
         .then(res => res.json())
         .then(categories => {
-            // Проверяем, что категории загружены
             if (categories.length > 0) {
+                const listItemEverythingButton = document.createElement('li');
+                listItemEverythingButton.textContent = "Everything";
+                listItemEverythingButton.classList.add('category-item');
+                listItemEverythingButton.addEventListener('click', () => {
+                    localStorage.removeItem('category');
+                    categoryClickHandler();
+                    console.log('Выбраны все категории!');
+                });
+                categoryList.appendChild(listItemEverythingButton);
                 categories.forEach((category, index) => {
-                    // Создаем элемент списка для каждой категории
                     const listItem = document.createElement('li');
-                    listItem.id = `category-${index}`; // Устанавливаем id для каждой категории
+                    listItem.textContent = category;
+                    listItem.classList.add('category-item');
 
-                    const categoryName = document.createElement('span'); // Создаем элемент span для названия категории
-                    categoryName.textContent = category; // Устанавливаем текст для span
-                    categoryName.classList.add('category-name'); // Можно добавить стиль при необходимости
-
-                    // Добавляем обработчик события для клика по категории
                     listItem.addEventListener('click', () => {
-                        localStorage.setItem('categoryId', listItem.id); // Сохраняем id категории в localStorage
-                        console.log(`Выбрана категория: ${category}, id: ${listItem.id}`);
+                        localStorage.setItem('category', category);
+                        categoryClickHandler();
+                        console.log(`Выбрана категория: ${category}`);
                     });
 
-                    // Добавляем span в li
-                    listItem.appendChild(categoryName);
-                    // Добавляем элемент списка в боковую панель
                     categoryList.appendChild(listItem);
                 });
             } else {
@@ -35,4 +35,70 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Ошибка при загрузке категорий:', error);
             categoryList.innerHTML = '<li>Не удалось загрузить категории</li>';
         });
+});
+
+let filteredProducts;
+let listNumber = 1;
+categoryClickHandler();
+function categoryClickHandler() {
+    const selectedCategory = localStorage.getItem('category');
+    fetch('https://fakestoreapi.com/products')
+        .then(res => res.json()).then(products => {
+            filteredProducts = selectedCategory ? products.filter(product => product.category === selectedCategory) : products;
+            listNumber = 1;
+            renderCards();
+        });
+}
+
+function renderCards() {
+    const productCards = document.getElementById('product-cards');
+    while (productCards.firstChild) {
+        productCards.removeChild(productCards.firstChild);
+    }
+    if (filteredProducts.length > 0) {
+        // Отображаем товары на странице
+
+        for (let i = (listNumber - 1) * 9; i < listNumber * 9 && i < filteredProducts.length; i++) {
+            const product = filteredProducts[i];
+            // Создаем элемент для каждого товара
+            const productCard = document.createElement('div');
+            productCard.classList.add('product-card');
+            productCard.id = `product-card-item${product.id}`;
+
+            // Устанавливаем изображение как фон
+            productCard.style.backgroundImage = `url('${product.image}')`;
+
+            productCard.innerHTML = `
+                <div class="product-footer">
+                    <div class="product-price">$${product.price}</div> 
+                    <div class="product-name">${product.title}</div> 
+                </div>
+                <img src="./images/cart48.png" alt="cart-icon" class="cart-icon">
+            `;
+            productCards.appendChild(productCard);
+        }
+    } else {
+        productCards.innerHTML = '<p>Нет товаров для выбранной категории</p>';
+    }
+    updatePageNumber();
+}
+const lessButton = document.getElementById("load-less");
+const moreButton = document.getElementById("load-more");
+const pageNumber = document.getElementById("page-number");
+
+function updatePageNumber(){
+    pageNumber.textContent = listNumber;
+}
+
+lessButton.addEventListener('click', () => {
+    if (listNumber > 1) {
+        listNumber--; 
+        renderCards();
+    }
+});
+moreButton.addEventListener('click',()=>{
+    if(listNumber*9 < filteredProducts.length){ 
+        listNumber++;
+        renderCards();
+     }
 });
