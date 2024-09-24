@@ -1,5 +1,5 @@
 const USER_TOKEN = 'userToken';
-
+const USER_ID = 'userID';
 function IsUserLogin(){
     return Boolean(sessionStorage.getItem(USER_TOKEN));
 }
@@ -20,10 +20,13 @@ function login(username,password){
             if(IsUserLogin()){ window.location.href=("./main.html"); } else {
             }
         }).catch(error=>{
-            sessionStorage.setItem(USER_TOKEN,username+password);
-            window.location.href=("./main.html");
             console.log('http метод не поддерживается',error);
         });
+
+        sessionStorage.setItem(USER_TOKEN,username+password);
+        sessionStorage.setItem(USER_ID,String(sessionStorage.getItem(USER_TOKEN).length%10));
+        window.location.href=("./main.html");
+     
 }
 function register(username,email,password,passwordConfirm){
    
@@ -171,13 +174,13 @@ function getRegFormData() {
 // Добавляем обработчики событий на кнопки
 document.addEventListener('DOMContentLoaded', () => {
     // Обработчик для кнопки "Войти"
-    document.querySelector('#Authorization .button-action').addEventListener('click', (event) => {
+    document.querySelector('#Authorization .button').addEventListener('click', (event) => {
         event.preventDefault(); // Отменяем стандартное поведение
         getAuthFormData();
     });
 
     // Обработчик для кнопки "Зарегистрироваться"
-    document.querySelector('#Registration .button-action').addEventListener('click', (event) => {
+    document.querySelector('#Registration .button').addEventListener('click', (event) => {
         event.preventDefault(); // Отменяем стандартное поведение
         getRegFormData();
     });

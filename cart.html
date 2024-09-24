@@ -22,15 +22,23 @@
         <div class="market-top-bar-element" id="auth">Войти</div>
         </div>
     </header>
-    <div id="cart-content">
-        <div class="cart-name">Корзина</div>
-    </div>
-    <div id="pay-window">
-        <div class="cart-cost">
-            <span>Стоимость: </span><div id="sum-of-cart"></div>
-            <div class="pay-button">оплатить</div>
+    <div class="main-content">
+        <div id="cart-content">
+            <div class="cart-name"><h2>Корзина</h2></div>
+            <img id="empty-cart" src="./images/empty-cart.svg" alt="empty-cart">
+            <ul id="cart-products"></ul>
+        </div>
+        <div id="pay-window">
+            <div class="cart-cost">
+                <span>Стоимость: </span><div id="sum-of-cart">60$</div>
+            </div>
+            <div class="cart-products-to-buy">
+                <ul id="cart-products-to-buy-list"></ul>
+                <div class="pay-button">оплатить</div>    
+            </div>
         </div>
     </div>
     <script src="./scripts/header.js"></script>
+    <script src="./scripts/cart.js"></script>
 </body>
 </html>

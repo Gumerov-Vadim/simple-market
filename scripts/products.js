@@ -99,6 +99,7 @@ function renderCards() {
             })
             if(sessionStorage.getItem(`${product.id}product`)) cart.classList.add('saved');
             productCard.appendChild(cart);
+            productCard.appendChild(productFooter);
             productCards.appendChild(productCard);
         }
     } else {

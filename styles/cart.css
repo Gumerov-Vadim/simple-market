@@ -1,3 +1,116 @@
 *{
     color:#F1F7F6;
 }
+#cart-content{
+    padding: 50px;
+
+}
+body{
+    display: flex;
+    flex-direction: column;
+}
+.main-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: calc(100vh - 50px);
+    width: 100vw;
+    overflow: hidden;
+}
+#pay-window{
+    background-color: #F1F7F6;
+    height: 100%;
+    width: 27vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.cart-cost{
+    width: calc(100% - 40px);
+    background-color: #2CC295;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.pay-button{
+    background-color: #2CC295;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    width: min-content;
+    height: min-content;
+    margin: 50px;
+}
+.pay-button{
+    cursor: pointer;
+}
+.pay-button:hover {
+    background-color: #00DF81;
+}
+#empty-cart{
+    width: 50%;
+}
+#cart-content{
+    width: 72vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.cart-products-to-buy{
+    display: flex;
+    height: 100%;
+}
+.invisible{
+    display: none;
+}
+ul{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+li{
+    list-style: none;
+    border-radius: 5px;
+    margin: 15px;
+    position: relative;
+    width: 100%;
+    height: 90px;
+}
+
+.product-footer{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1px 5px 1px 5px;
+    left: 30px;
+    bottom: 15px;
+    background-color: rgba(0,0,0,0.3);
+    color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 60%;
+}
+.cart-product-quantity{
+    display: flex;
+    flex-direction: column-reverse;
+    background-color: #00DF81;
+    float: right;
+    align-items: center;
+    justify-content: center;
+}
+.quantity-btn{
+    background-color: #00DF81;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 26px;
+}
+.quantity-btn:hover{
+    background-color: #2CC295;
+}
