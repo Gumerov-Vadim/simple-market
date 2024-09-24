@@ -17,3 +17,72 @@ header{
     top: 0;
     left: 0;
 }
+h3{
+    margin: 0 0 10px 0 !important;
+}
+.button{
+    margin: 10px 0 0 0;
+    position: relative;    
+    height: 50px;
+    width: min-content;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 0 70px 0 10px;
+}
+@keyframes buttonHover {
+    0%{
+        background-color: transparent;
+    }
+    100%{
+    /* background-color: #03624C; */
+    background-color: rgba(0,0,0,0.15);
+    }
+    
+}
+@keyframes shiftRight {
+    form{
+        right: 20px;
+    }
+    to{
+        right: 0px;
+    }
+    
+}
+.button:hover{
+    animation: buttonHover 0.2s ease-in 0.01s 1 forwards;
+}
+.button::after{
+    position: absolute;
+    display: block;
+    content: "";
+    width: 50px;
+    height: 50px;
+    background-image: url("../images/whitearrow50.png");
+    right: 20px;
+}
+.button:hover::after, .button:focus::after{
+    animation: shiftRight 0.2s ease-in 0.01s 1 forwards;
+}
+
+.main{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.auth-another{
+    margin: 30px 0 0 0;
+    color: #F1F7F6;
+    cursor: pointer;
+}
+.invisible{
+    display: none;
+}
+.authError{
+    color: red;
+    width: 100%;
+    text-align: start;
+    font-size: 14px;
+}

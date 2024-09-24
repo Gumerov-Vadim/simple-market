@@ -1,3 +1,19 @@
+function saveProductToCart(id){
+    sessionStorage.setItem(`${id}product`,id);
+}
+function removeProductFromCart(id){
+    sessionStorage.removeItem(`${id}product`);
+}
+function productCardClickHandler(node,id){
+    if(sessionStorage.getItem(`${id}product`)){
+        removeProductFromCart(id);
+        node.classList.remove("saved");
+    } else {
+        saveProductToCart(id);
+        node.classList.add("saved");
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const categoryList = document.getElementById('category-list');
 
@@ -9,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 listItemEverythingButton.textContent = "Everything";
                 listItemEverythingButton.classList.add('category-item');
                 listItemEverythingButton.addEventListener('click', () => {
-                    localStorage.removeItem('category');
+                    sessionStorage.removeItem('category');
                     categoryClickHandler();
                     console.log('Выбраны все категории!');
                 });
@@ -20,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     listItem.classList.add('category-item');
 
                     listItem.addEventListener('click', () => {
-                        localStorage.setItem('category', category);
+                        sessionStorage.setItem('category', category);
                         categoryClickHandler();
                         console.log(`Выбрана категория: ${category}`);
                     });
@@ -41,7 +57,7 @@ let filteredProducts;
 let listNumber = 1;
 categoryClickHandler();
 function categoryClickHandler() {
-    const selectedCategory = localStorage.getItem('category');
+    const selectedCategory = sessionStorage.getItem('category');
     fetch('https://fakestoreapi.com/products')
         .then(res => res.json()).then(products => {
             filteredProducts = selectedCategory ? products.filter(product => product.category === selectedCategory) : products;
@@ -68,13 +84,21 @@ function renderCards() {
             // Устанавливаем изображение как фон
             productCard.style.backgroundImage = `url('${product.image}')`;
 
-            productCard.innerHTML = `
-                <div class="product-footer">
-                    <div class="product-price">$${product.price}</div> 
-                    <div class="product-name">${product.title}</div> 
-                </div>
-                <img src="./images/cart48.png" alt="cart-icon" class="cart-icon">
-            `;
+            const productFooter = document.createElement("div");
+            productFooter.classList.add('product-footer');
+            productFooter.innerHTML =`
+            <div class="product-price">$${product.price}</div> 
+            <div class="product-name">${product.title}</div>
+            ` 
+            const cart = document.createElement("img");
+            cart.src = "./images/cart48.png";
+            cart.alt="cart-icon";
+            cart.classList.add('cart-icon');
+            cart.addEventListener("click",()=>{
+                productCardClickHandler(cart,product.id);
+            })
+            if(sessionStorage.getItem(`${product.id}product`)) cart.classList.add('saved');
+            productCard.appendChild(cart);
             productCards.appendChild(productCard);
         }
     } else {

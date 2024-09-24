@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Корзина</title>
     <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/cart.css">
     <link rel="stylesheet" href="styles/header.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,13 +18,19 @@
         <div class="market-top-bar">
             <div class="market-top-bar-element" id="products">Товары</div>
             <div class="market-top-bar-element" id="cart">Корзина</div>
-            <!-- <div class="cart">Корзина</div> -->
             <div class="market-top-bar-element" id="profile">Профиль</div>
         <div class="market-top-bar-element" id="auth">Войти</div>
-    </div>
+        </div>
     </header>
-    Корзина.
-    <a href="./index.html">вернуться</a>
+    <div id="cart-content">
+        <div class="cart-name">Корзина</div>
+    </div>
+    <div id="pay-window">
+        <div class="cart-cost">
+            <span>Стоимость: </span><div id="sum-of-cart"></div>
+            <div class="pay-button">оплатить</div>
+        </div>
+    </div>
     <script src="./scripts/header.js"></script>
 </body>
 </html>

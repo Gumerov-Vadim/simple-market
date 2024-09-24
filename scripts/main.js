@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const productCards = document.getElementById('product-cards');
 
-    // Получаем категорию из localStorage
-    const selectedCategory = localStorage.getItem('category'); // Предположим, категория хранится под ключом 'category'
+    // Получаем категорию из sessionStorage
+    const selectedCategory = sessionStorage.getItem('category'); // Предположим, категория хранится под ключом 'category'
 
     // Функция для получения случайных элементов из массива
     function getRandomItems(arr, count) {
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(products => {
             let filteredProducts;
 
-            // Если категория в localStorage есть, фильтруем по ней
+            // Если категория в sessionStorage есть, фильтруем по ней
             if (selectedCategory) {
                 filteredProducts = products.filter(product => product.category === selectedCategory);
             } else {

@@ -54,6 +54,9 @@
     padding: 5px;
     border-radius: 15px;
 }
+.saved{
+    background-color: rgba(100,255,100,0.75);
+}
 .cart-icon:hover{
     transform: scale(1.1);
 }

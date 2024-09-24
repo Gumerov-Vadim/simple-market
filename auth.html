@@ -19,21 +19,48 @@
         <div class="market-top-bar">
             <div class="market-top-bar-element" id="products">Товары</div>
             <div class="market-top-bar-element" id="cart">Корзина</div>
-            <!-- <div class="cart">Корзина</div> -->
             <div class="market-top-bar-element" id="profile">Профиль</div>
         <div class="market-top-bar-element" id="auth">Войти</div>
     </div>
     </header>
-    <form autocomplete="on">
-        <label for="userName">Введите ваше имя:</label>
-        <input name="userName" type="text">
-        <label for="userPassword">Введите ваш пароль:</label>
-        <input name="userPassword" type="text">
-    </form>
-    <div class="auth-another">
-        <div class="forget-password"></div>
-        <div class="switch-mode"></div>
+
+    <div class="main" id="Authorization">
+        <form autocomplete="on">
+            <h3>Авторизация</h3>
+            <label for="userName">Введите ваше имя:</label>
+            <input name="userName" type="text">
+            <label for="userPassword">Введите пароль:</label>
+            <input name="userPassword" type="password">
+            <div class="button"><span class="button-action">Войти</span></div>
+        </form>
+        
+        <div class="auth-another">
+            <div class="forget-password"></div>
+            <div class="switch-mode">У меня нет аккаунта!</div>
+        </div>
     </div>
+
+    <div class="main invisible" id="Registration">
+        <form autocomplete="on">
+            <h3>Регистрация</h3>
+            <label for="userName">Введите ваше имя:</label>
+            <input name="userName" type="text">
+            <label for="userMail">Введите вашу почту:</label>
+            <input name="userMail" type="text">
+            <label for="userPassword">Введите пароль:</label>
+            <input name="userPassword" type="password">
+            <label for="userPasswordConfirm">Повторите пароль:</label>
+            <input name="userPasswordConfirm" type="password">
+            <div class="button"><span class="button-action">Зарегистрироваться</span></div>
+        </form>
+        
+        <div class="auth-another">
+            <div class="switch-mode">У меня уже есть аккаунт!</div>
+        </div>
+    </div>
+    
+
     <script src="./scripts/header.js"></script>
+    <script src="./scripts/auth.js"></script>
 </body>
 </html>
